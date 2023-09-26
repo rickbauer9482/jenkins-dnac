@@ -28,7 +28,7 @@ pipeline {
         stage('CLI Templates') {
             steps {
                 withEnv(["HOME=${env.WORKSPACE}"]) {
-                    sh 'pip install -r /requirements.txt --no-warn-script-location'
+                    sh 'pip install -r requirements.txt --no-warn-script-location'
                     echo('\n\nVerify Python version and Libraries:..............................')
                     sh 'python --version'
                     sh 'pip3 list'
