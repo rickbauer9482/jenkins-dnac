@@ -16,9 +16,9 @@ pipeline {
         }
 
     }
-    steps {
-        sh 'python --version'
-    }
+    // steps {
+    //     sh 'python --version'
+    // }
   post {
     cleanup {
       cleanWs()
