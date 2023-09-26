@@ -25,8 +25,8 @@ pipeline {
             steps {
                 withEnv(["HOME=${env.WORKSPACE}"]) {
                     sh 'pip install -r requirements.txt'
-                    echo 'Deploying configuration templates....'
-                    sh "python cli_templates.py"
+                    // echo 'Deploying configuration templates....'
+                    // sh "python cli_templates.py"
                 }
             }
         }
