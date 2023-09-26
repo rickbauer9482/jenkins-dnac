@@ -21,10 +21,5 @@ pipeline {
                 sh 'python --version'
             }
         }
-  post {
-    cleanup {
-      cleanWs()
     }
-  }
-}
 }
