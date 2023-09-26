@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Build Docker') {
             agent {
-                docker {
+                dockerContainer {
                     image 'python:latest'
                     reuseNode true
                 }
