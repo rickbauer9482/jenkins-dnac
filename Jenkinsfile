@@ -5,8 +5,10 @@ pipeline {
         timeout(time: 20, unit: 'MINUTES') // Set a timeout on the total execution time of the job
     }
     agent {
-        dockerNode { 
+        label 'docker-agent180' {
+            docker { 
             image 'python:latest' 
+            }
         }
     }
 
