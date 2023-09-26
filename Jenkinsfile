@@ -10,7 +10,7 @@ pipeline {
             agent {
                 dockerContainer {
                     image 'python:latest'
-                    reuseNode true
+                    // reuseNode true
                 }
             }
         }
