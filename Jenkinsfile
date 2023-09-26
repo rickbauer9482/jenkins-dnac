@@ -5,11 +5,11 @@ pipeline {
         timeout(time: 20, unit: 'MINUTES') // Set a timeout on the total execution time of the job
     }
     agent {
-        label 'docker-agent180' {
-            docker { 
+        dockerNode { 
+            dockerHost 'tcp://172.30.1.180:4243'
             image 'python:latest' 
+            remoteFs '/home/jenkins'
             }
-        }
     }
 
     stages {
