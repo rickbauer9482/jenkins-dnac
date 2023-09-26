@@ -8,6 +8,7 @@ pipeline {
         docker { 
             // dockerHost 'tcp://172.30.1.180:4243'
             image 'python:latest' 
+            reuseNode true
             }
     }
     environment {
