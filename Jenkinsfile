@@ -4,21 +4,23 @@ pipeline {
         timestamps() // Append timestamps to each line
         timeout(time: 20, unit: 'MINUTES') // Set a timeout on the total execution time of the job
     }
-    agent any 
+    agent {
+        docker { 
+            image 'python:latest' 
+        }
+    }
+
     stages {
-        stage('Build Docker') {
-            agent {
-                dockerContainer {
-                    image 'python:latest'
-                    // reuseNode true
-                }
+        stage('Checkout'){
+           steps {
+            checkout scm
+           }
+        }
+        stage('Test') {
+            steps {
+                sh 'python --version'
             }
         }
-
-    }
-    // steps {
-    //     sh 'python --version'
-    // }
   post {
     cleanup {
       cleanWs()
