@@ -10,6 +10,9 @@ pipeline {
             image 'python:latest' 
             }
     }
+    environment {
+        JENKINS_REPO_NAME = 'jenkins_dnac'
+    }
 
     stages {
         stage('Checkout'){
@@ -20,14 +23,18 @@ pipeline {
         stage('Test') {
             steps {
                 sh 'python --version'
+                sh 'export  
             }
         }
         stage('CLI Templates') {
             steps {
                 withEnv(["HOME=${env.WORKSPACE}"]) {
-                    sh 'pip install -r requirements.txt'
-                    // echo 'Deploying configuration templates....'
-                    // sh "python cli_templates.py"
+                    sh 'pip install -r ' + JENKINS_REPO_NAME + '/requirements.txt --no-warn-script-location'
+                    echo('\n\nVerify Python version and Libraries:..............................')
+                    sh 'python --version'
+                    sh 'pip3 list'
+                    echo('\n\nVerify Application Files:..............................')
+                    sh 'ls ' + JENKINS_REPO_NAME + '/'
                 }
             }
         }
