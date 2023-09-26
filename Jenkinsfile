@@ -22,8 +22,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh 'python --version'
-                sh 'export  
+                sh 'python --version' 
             }
         }
         stage('CLI Templates') {
