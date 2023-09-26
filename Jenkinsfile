@@ -33,7 +33,7 @@ pipeline {
                     sh 'python --version'
                     sh 'pip3 list'
                     echo('\n\nVerify Application Files:..............................')
-                    sh 'ls -la' + ${HOME}
+                    sh 'ls -la' + ${HOME} + '/'
                 }
             }
         }
