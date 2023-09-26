@@ -5,7 +5,7 @@ pipeline {
         timeout(time: 20, unit: 'MINUTES') // Set a timeout on the total execution time of the job
     }
     agent {
-        dockerNode { 
+        dockerContainer { 
             dockerHost 'tcp://172.30.1.180:4243'
             image 'python:latest' 
             remoteFs '/home/jenkins'
