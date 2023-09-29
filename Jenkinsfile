@@ -26,7 +26,7 @@ pipeline {
                 sh 'python --version' 
             }
         }
-        stage('CLI Templates') {
+        stage('Install Python Modules') {
             steps {
                 withEnv(["HOME=${env.WORKSPACE}"]) {
                     sh 'pip install -r requirements.txt --no-warn-script-location'
